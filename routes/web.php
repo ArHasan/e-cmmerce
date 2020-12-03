@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.dashboard');
 });
+
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::resource('categroy', CategoryController::class);
