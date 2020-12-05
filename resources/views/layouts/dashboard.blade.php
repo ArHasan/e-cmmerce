@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('backend/asset/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('backend/asset/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.0') }}>
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
@@ -166,9 +167,9 @@
 
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
+                            <i class="nav-icon fas fa-plus-square"></i>
                             <p>
-                                Category
+                                Category Menu
                                 <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
@@ -202,7 +203,7 @@
 
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('attribute.store')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Add Attribute</p>
                                 </a>
@@ -210,9 +211,9 @@
                         </ul>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('attribute.create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>View Attributes </p>
+                                    <p>Manage Attributes </p>
                                 </a>
                             </li>
                         </ul>
@@ -336,6 +337,7 @@
 
 </script>
 <!-- Bootstrap 4 -->
+<script src="{{asset('backend/asset/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 <script src="{{ asset('backend/asset/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- ChartJS -->
 <script src="{{ asset('backend/asset/plugins/chart.js/Chart.min.js') }}"></script>

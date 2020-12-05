@@ -17,6 +17,9 @@ class Category extends Model
         'description',
         'thumbnail',
         'created_at',
-
     ];
+
+    public function categoryname(){
+        return $this->belongsTo('App\models\Category','parent_category_id');
+    }
 }

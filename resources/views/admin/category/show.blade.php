@@ -12,7 +12,7 @@
     @endif
     <div class="card">
         <div class="card-header bg-primary">
-            <h3 class="card-title ">Category View</h3>
+            <h3 class="card-title ">Category View </h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -37,7 +37,14 @@
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->category_name }}</td>
                         <td>{{ $item->slug }} </td>
-                        <td> {{ $item->parent_category_id }}</td>
+                        <td>
+                            @if($item->parent_category_id ==0)
+                                {{'Main'}}
+                            @else
+                                    {{ $item->categoryname->category_name}}
+                            @endif
+
+                        </td>
                         <td>{{ $item->description }}</td>
                         <td>
                             <img src="{{asset('/img/category').'/'.$item->thumbnail }}" alt="image" width="50">
@@ -55,7 +62,9 @@
 
                         </td>
                         <td>
-                            <span class="badge bg-primary"><a href="{{ route('categroy.show',$item->id)}}">Edit</a></span>
+                            <a href="{{ route('categroy.show',$item->id)}}">
+                                   <button class="badge bg-primary">Edit</button>
+                                </a>
                             <form action="{{ route('categroy.destroy',$item->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
